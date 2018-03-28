@@ -1,3 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~normalize.css';
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 @import '~katex/dist/katex.css';
+@import "~basscss/css/basscss.css";
+@import "~basscss/css/basscss.css";
+@import "~basscss-colors/css/colors.css";
+@import "~basscss-background-colors/css/background-colors.css";
+
+* {
+    box-sizing: border-box;
+}
+
+.mat-app-background {
+    /*background-color: #191919;*/
+}

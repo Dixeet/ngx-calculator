@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { CalculatorModule } from './calculator/calculator.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { SharedModule } from './shared/shared.module';
     imports: [
         BrowserModule,
         CoreModule,
-        SharedModule
+        SharedModule,
+        CalculatorModule
     ],
     providers: [],
     bootstrap: [AppComponent]

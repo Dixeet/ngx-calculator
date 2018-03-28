@@ -1,0 +1,36 @@
+<div class="calculator black sm-col-12 md-col-6 mx-auto">
+    <div class="frame flex flex-column">
+        <div class="screen p2 col-12 bg-gray self-stretch flex-auto">
+            <div *ngFor="let resultSet of history">
+                <div class="formula" [style.font-size.em]="resultSet.formulaFontSize">
+                    <ng-katex *ngIf="resultSet.formula.indexOf('#Error') < 0" [equation]="resultSet.formula"
+                              [options]="options"></ng-katex>
+                    <div *ngIf="resultSet.formula.indexOf('#Error') > -1">
+                        {{resultSet.formula}}
+                    </div>
+                </div>
+                <div class="right-align value">
+                    <ng-katex *ngIf="resultSet.value.indexOf('#Error') < 0" [equation]="resultSet.value"></ng-katex>
+                    <div *ngIf="resultSet.value.indexOf('#Error') > -1">
+                        {{resultSet.value}}
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+        <div class="col-12 input bg-silver self-end">
+            <form class="flex items-center" (ngSubmit)="onSubmit()">
+                <input type="text" class="p2 flex-auto bg-silver" placeholder="Calcul" [(ngModel)]="inputValue"
+                       name="inputValue">
+                <div class="self-stretch flex">
+                    <button type="submit" class="self-stretch" mat-raised-button color="primary">Enter</button>
+                </div>
+                <div class="flex flex-column">
+                    <button type="button" mat-raised-button color="accent"><mat-icon>keyboard_arrow_up</mat-icon></button>
+                    <button type="button" mat-raised-button color="accent" (click)="onAns()">Ans</button>
+                    <button type="button" mat-raised-button color="accent"><mat-icon>keyboard_arrow_down</mat-icon></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

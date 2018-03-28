@@ -8859,7 +8859,7 @@ function factory (type, config, load, typed) {
       this._data = preprocess(data);
       // get the dimensions of the array
       this._size = array.size(this._data);
-      // verify the dimensions of the array, TODO: compute size while processing array
+      // verify the dimensions of the array, TODO: _compute size while processing array
       array.validate(this._data, this._size);
       // data type unknown
       this._datatype = datatype;
@@ -32473,7 +32473,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
       return Math.log(a * a + b * b) * 0.5;
     }
 
-    /* I got 4 ideas to compute this property without overflow:
+    /* I got 4 ideas to _compute this property without overflow:
      *
      * Testing 1000000 times with random samples for a,b ∈ [1, 1000000000] against a big decimal library to get an error estimate
      *
@@ -34165,7 +34165,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     if (d === 1) // Catch non-cyclic numbers
       return 0;
 
-    // If we would like to compute really large numbers quicker, we could make use of Fermat's little theorem:
+    // If we would like to _compute really large numbers quicker, we could make use of Fermat's little theorem:
     // 10^(d-1) % d == 1
     // However, we don't need such large numbers and MAX_CYCLE_LEN should be the capstone,
     // as we want to translate the numbers to strings.
@@ -36864,7 +36864,7 @@ function factory (type, config, load) {
     if (this._min === null) {
       // minimum
       var m = null;
-      // compute min
+      // _compute min
       this.forEach(function (v) {
         if (m === null || smaller(v, m))
           m = v;
@@ -36883,7 +36883,7 @@ function factory (type, config, load) {
     if (this._max === null) {
       // maximum
       var m = null;
-      // compute max
+      // _compute max
       this.forEach(function (v) {
         if (m === null || smaller(m, v))
           m = v;
@@ -38330,10 +38330,10 @@ function factory (type, config, load, typed, math) {
    */
   Unit.prototype._bestPrefix = function () {
     if (this.units.length !== 1) {
-      throw new Error("Can only compute the best prefix for single units with integer powers, like kg, s^2, N^-1, and so forth!");
+      throw new Error("Can only _compute the best prefix for single units with integer powers, like kg, s^2, N^-1, and so forth!");
     }
     if (Math.abs(this.units[0].power - Math.round(this.units[0].power)) >= 1e-14) {
-      throw new Error("Can only compute the best prefix for single units with integer powers, like kg, s^2, N^-1, and so forth!");
+      throw new Error("Can only _compute the best prefix for single units with integer powers, like kg, s^2, N^-1, and so forth!");
     }
 
     // find the best prefix value (resulting in the value of which
@@ -43631,7 +43631,7 @@ module.exports = {
   'syntax': [
     'multinomial(A)'
   ],
-  'description': 'Multinomial Coefficients compute the number of ways of picking a1, a2, ..., ai unordered outcomes from `n` possibilities. multinomial takes one array of integers as an argument. The following condition must be enforced: every ai > 0.',
+  'description': 'Multinomial Coefficients _compute the number of ways of picking a1, a2, ..., ai unordered outcomes from `n` possibilities. multinomial takes one array of integers as an argument. The following condition must be enforced: every ai > 0.',
   'examples': [
     'multinomial([1, 2, 1])'
   ],
@@ -48576,7 +48576,7 @@ function factory (type, config, load) {
               d += dext;
               // keep e in Ei
               cindex[pn++] = e;
-              // compute the hash of node i
+              // _compute the hash of node i
               h += e;
             }
             else {
@@ -48602,7 +48602,7 @@ function factory (type, config, load) {
           d += nvj;
           // place j in node list of i
           cindex[pn++] = j;
-          // compute hash for node i
+          // _compute hash for node i
           h += j;
         }
         // check for mass elimination
@@ -48701,7 +48701,7 @@ function factory (type, config, load) {
           continue;
         // restore W[nv + i]
         W[nv + i] = nvi;
-        // compute external degree(i)
+        // _compute external degree(i)
         d = W[degree + i] + dk - nvi;
         d = Math.min(d, n - nel - nvi);
         if (W[head + d] != -1) 
@@ -48792,7 +48792,7 @@ function factory (type, config, load) {
    *   P = M' * M
    */
   var _createTargetMatrix = function (order, a, m, n, dense) {
-    // compute A'
+    // _compute A'
     var at = transpose(a);
 
     // check order = 1, matrix must be square
@@ -49535,7 +49535,7 @@ function factory (type, config, load) {
     // reset number of nonzero elements in L and U
     lnz = 0;
     unz = 0;
-    // compute L(:,k) and U(:,k)
+    // _compute L(:,k) and U(:,k)
     for (var k = 0; k < n; k++) {
       // update ptr
       lptr[k] = lnz;
@@ -56393,7 +56393,7 @@ function factory (type, config, load, typed) {
   var isPositive = load(__webpack_require__(59));
 
   /**
-   * Multinomial Coefficients compute the number of ways of picking a1, a2, ..., ai unordered outcomes from `n` possibilities.
+   * Multinomial Coefficients _compute the number of ways of picking a1, a2, ..., ai unordered outcomes from `n` possibilities.
    *
    * multinomial takes one array of integers as an argument.
    * The following condition must be enforced: every ai <= 0

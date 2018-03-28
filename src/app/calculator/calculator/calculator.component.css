@@ -1,0 +1,21 @@
+.calculator, .calculator > .frame {
+    height: 100vh;
+}
+
+.screen {
+    overflow-y: auto;
+}
+
+.screen .formula {
+    font-size: 1em;
+}
+
+textarea, .input input {
+    resize: vertical;
+    height: 75px;
+    border: none;
+}
+
+button {
+    border-radius: 0;
+}
