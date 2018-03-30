@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {mathjs as math} from '../../shared/mathjs';
 import {CalculatorService} from '../core/calculator.service';
-import {logger} from 'codelyzer/util/logger';
 import {KatexOptions} from 'ng-katex';
 
 @Component({
@@ -13,23 +11,67 @@ export class CalculatorComponent implements OnInit {
     public inputValue: string = '';
     public parser;
     public history = [];
-    options: KatexOptions = {
+    public options: KatexOptions = {
         displayMode: false,
+    };
+    public historyState = {
+        tempValue: '',
+        currentIndex: 0
     };
 
     constructor(private _calcService: CalculatorService) {
         this.parser = this._calcService.parser;
         this.history = this._calcService.history;
+        this.parser.set('ans', 0);
+        this._resetHistoryState();
     }
 
     onSubmit() {
-        console.log('submit');
         this._compute(this.inputValue);
         this.inputValue = '';
+        this._resetHistoryState();
     }
 
     onAns() {
         this.inputValue = 'ans';
+    }
+
+    onKey(event: any){
+        if(event.code === "ArrowUp" || event.code === "ArrowDown"){
+            event.stopPropagation();
+            event.preventDefault();
+            if (event.code === "ArrowUp"){
+                this.onArrowUp();
+            } else {
+                this.onArrowDown();
+            }
+        }
+    }
+
+    onArrowUp(){
+        if(this.historyState.currentIndex > 0){
+            if(this.historyState.currentIndex === this.history.length) {
+                this.historyState.tempValue = this.inputValue;
+            }
+            this.historyState.currentIndex--;
+            this.inputValue = this.history[this.historyState.currentIndex].rawValue;
+        }
+    }
+
+    onArrowDown(){
+        if(this.historyState.currentIndex < this.history.length){
+            this.historyState.currentIndex++;
+            if (this.historyState.currentIndex < this.history.length) {
+                this.inputValue = this.history[this.historyState.currentIndex].rawValue;
+            } else {
+                this.inputValue = this.historyState.tempValue;
+            }
+        }
+    }
+
+    private _resetHistoryState(){
+        this.historyState.tempValue = '';
+        this.historyState.currentIndex = this.history.length;
     }
 
     private _compute(value) {
@@ -49,7 +91,11 @@ export class CalculatorComponent implements OnInit {
         };
         try {
             const node = this.parser.parse(value);
-            resultSet.formula = node.toTex();
+            resultSet.formula = node.toTex({
+                    parenthesis: 'auto',
+                    implicit: 'show'
+                }
+            );
             resultSet.formulaFontSize += Math.min((0.5 * this._calcService.getNumberOfDivide(node)), 3);
         } catch (e) {
             resultSet.formula = '#Error computing formula';

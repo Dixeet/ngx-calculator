@@ -10,7 +10,7 @@
                     </div>
                 </div>
                 <div class="right-align value">
-                    <ng-katex *ngIf="resultSet.value.indexOf('#Error') < 0" [equation]="resultSet.value"></ng-katex>
+                    <ng-katex *ngIf="resultSet.value.indexOf('#Error') < 0" [equation]="resultSet.value" [options]="options"></ng-katex>
                     <div *ngIf="resultSet.value.indexOf('#Error') > -1">
                         {{resultSet.value}}
                     </div>
@@ -21,14 +21,14 @@
         <div class="col-12 input bg-silver self-end">
             <form class="flex items-center" (ngSubmit)="onSubmit()">
                 <input type="text" class="p2 flex-auto bg-silver" placeholder="Calcul" [(ngModel)]="inputValue"
-                       name="inputValue">
+                       name="inputValue" (keypress)="onKey($event)" autocomplete="off">
                 <div class="self-stretch flex">
                     <button type="submit" class="self-stretch" mat-raised-button color="primary">Enter</button>
                 </div>
                 <div class="flex flex-column">
-                    <button type="button" mat-raised-button color="accent"><mat-icon>keyboard_arrow_up</mat-icon></button>
+                    <button type="button" mat-raised-button color="accent" (click)="onArrowUp()"><mat-icon>keyboard_arrow_up</mat-icon></button>
                     <button type="button" mat-raised-button color="accent" (click)="onAns()">Ans</button>
-                    <button type="button" mat-raised-button color="accent"><mat-icon>keyboard_arrow_down</mat-icon></button>
+                    <button type="button" mat-raised-button color="accent" (click)="onArrowDown()"><mat-icon>keyboard_arrow_down</mat-icon></button>
                 </div>
             </form>
         </div>

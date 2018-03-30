@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {mathjs as math} from '../../shared/mathjs';
-
 @Injectable()
 export class CalculatorService {
 
@@ -18,7 +17,6 @@ export class CalculatorService {
             divideCount = 1;
         }
         divideCount = this._recursiveNumberOfDivide(node, divideCount);
-        console.log(`Count of / ${divideCount}`);
         return divideCount
     }
 
