@@ -1,7 +1,7 @@
 <div class="calculator black sm-col-12 md-col-6 mx-auto">
     <div class="frame flex flex-column">
-        <div appAutoscroll class="screen p2 col-12 bg-gray self-stretch flex-auto">
-            <div *ngFor="let resultSet of history">
+        <div appAutoscroll class="screen col-12 bg-gray self-stretch flex-auto">
+            <div class="result-set pt2 pb1 px2" (click)="onResultSetClick(i)" *ngFor="let resultSet of history; index as i">
                 <div class="formula" [style.font-size.em]="resultSet.formulaFontSize">
                     <ng-katex *ngIf="resultSet.formula.indexOf('#Error') < 0" [equation]="resultSet.formula"
                               [options]="options"></ng-katex>
@@ -15,7 +15,6 @@
                         {{resultSet.value}}
                     </div>
                 </div>
-                <hr>
             </div>
         </div>
         <div class="col-12 input bg-silver self-end">

@@ -71,6 +71,11 @@ export class CalculatorComponent implements OnInit {
         }
     }
 
+    onResultSetClick(index){
+        this.historyState.currentIndex = index;
+        this.inputValue = this.history[this.historyState.currentIndex].rawValue;
+    }
+
     private _resetHistoryState(){
         this.historyState.tempValue = '';
         this.historyState.currentIndex = this.history.length;
