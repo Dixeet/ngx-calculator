@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {mathjs as math} from '../../shared/mathjs';
+import {mathjs as math} from '../../app-shared/mathjs';
 @Injectable()
 export class CalculatorService {
 
