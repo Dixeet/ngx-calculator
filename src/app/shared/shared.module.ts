@@ -17,6 +17,7 @@ import {
     MatToolbarModule,
     MatTooltipModule,
 } from '@angular/material';
+import { AutoscrollDirective } from './autoscroll.directive';
 
 const MaterialModules = [
     MatButtonModule,
@@ -45,7 +46,8 @@ export const modules = [
     imports: modules,
     exports: [
         ...modules,
+        AutoscrollDirective,
     ],
-    declarations: [],
+    declarations: [AutoscrollDirective],
 })
 export class SharedModule { }

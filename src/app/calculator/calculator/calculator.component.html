@@ -1,6 +1,6 @@
 <div class="calculator black sm-col-12 md-col-6 mx-auto">
     <div class="frame flex flex-column">
-        <div class="screen p2 col-12 bg-gray self-stretch flex-auto">
+        <div appAutoscroll class="screen p2 col-12 bg-gray self-stretch flex-auto">
             <div *ngFor="let resultSet of history">
                 <div class="formula" [style.font-size.em]="resultSet.formulaFontSize">
                     <ng-katex *ngIf="resultSet.formula.indexOf('#Error') < 0" [equation]="resultSet.formula"

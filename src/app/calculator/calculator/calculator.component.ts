@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {CalculatorService} from '../core/calculator.service';
 import {KatexOptions} from 'ng-katex';
+import {AutoscrollDirective} from '../../shared/autoscroll.directive';
 
 @Component({
     selector: 'app-calculator',
@@ -18,6 +19,7 @@ export class CalculatorComponent implements OnInit {
         tempValue: '',
         currentIndex: 0
     };
+    @ViewChild(AutoscrollDirective) autoscrollDirective;
 
     constructor(private _calcService: CalculatorService) {
         this.parser = this._calcService.parser;
@@ -78,6 +80,7 @@ export class CalculatorComponent implements OnInit {
         if(!!value) {
             const resultSet = this._getResultSet(value);
             this.history.push(resultSet);
+            this.autoscrollDirective.autoscroll();
         }
     }
 

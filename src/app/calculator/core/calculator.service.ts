@@ -31,12 +31,8 @@ export class CalculatorService {
         let divideAlreadyFound = false;
         node.forEach((node, path, parent) => {
             if (node.type === 'OperatorNode' && node.fn === 'divide' && !divideAlreadyFound){
-                console.log(`current count ${divideCount}`);
                 divideCount++;
                 divideAlreadyFound = true;
-            }
-            if(node.type !== 'ConstantNode'){
-                console.log(node, path, parent);
             }
             divideCount = this._recursiveNumberOfDivide(node, divideCount);
         });
