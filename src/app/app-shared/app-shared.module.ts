@@ -18,6 +18,7 @@ import {
     MatTooltipModule,
 } from '@angular/material';
 import { AutoscrollDirective } from './autoscroll.directive';
+import {KatexModule} from 'ng-katex';
 
 const MaterialModules = [
     MatButtonModule,
@@ -39,6 +40,7 @@ export const modules = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    KatexModule,
     ...MaterialModules,
 ];
 
@@ -47,6 +49,7 @@ export const modules = [
     exports: [
         ...modules,
         AutoscrollDirective,
+        KatexModule,
     ],
     declarations: [AutoscrollDirective],
 })

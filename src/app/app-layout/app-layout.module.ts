@@ -7,9 +7,9 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   imports: [
       SharedModule,
-      RouterModule
+      RouterModule,
   ],
   declarations: [NavbarComponent, HomeComponent],
   exports: [NavbarComponent, HomeComponent]
 })
-export class LayoutModule { }
+export class AppLayoutModule { }

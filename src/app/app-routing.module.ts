@@ -1,16 +1,23 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {CalculatorComponent} from './calculator/calculator/calculator.component';
 import {HomeComponent} from './app-layout/home/home.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: HomeComponent,
+        component: HomeComponent
     },
     {
         path: 'calculator',
-        component: CalculatorComponent,
+        loadChildren: 'app/calculator/calculator.module#CalculatorModule'
+    },
+    {
+        path: 'orbit',
+        loadChildren: 'app/orbit/orbit.module#OrbitModule'
+    },
+    {
+        path: 'deltav',
+        loadChildren: 'app/deltav/deltav.module#DeltavModule'
     },
 ];
 
