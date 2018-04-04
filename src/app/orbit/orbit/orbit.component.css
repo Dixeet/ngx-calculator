@@ -1,5 +1,5 @@
 mat-sidenav {
-    max-width: 250px;
+    width: 250px;
 }
 
 mat-sidenav-content {
@@ -9,3 +9,4 @@ mat-sidenav-content {
 ::ng-deep .mat-drawer-backdrop.mat-drawer-shown {
     visibility: hidden !important;
 }
+

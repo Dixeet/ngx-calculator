@@ -19,6 +19,8 @@ import {
 } from '@angular/material';
 import { AutoscrollDirective } from './autoscroll.directive';
 import {KatexModule} from 'ng-katex';
+import { SubmenuComponent } from './submenu/submenu.component';
+import { SubmenuItemsComponent } from './submenu-items/submenu-items.component';
 
 const MaterialModules = [
     MatButtonModule,
@@ -50,7 +52,9 @@ export const modules = [
         ...modules,
         AutoscrollDirective,
         KatexModule,
+        SubmenuComponent,
+        SubmenuItemsComponent,
     ],
-    declarations: [AutoscrollDirective],
+    declarations: [AutoscrollDirective, SubmenuComponent, SubmenuItemsComponent],
 })
 export class SharedModule { }

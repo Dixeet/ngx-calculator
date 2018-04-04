@@ -1,0 +1,16 @@
+mat-list-item {
+    background-color: #303030;
+    margin-bottom: 1px;
+}
+
+::ng-deep mat-list-item a {
+    width: 100% !important;
+    height: 100% !important;
+    text-align: left !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+::ng-deep .mat-list-item-content {
+    padding: 0 !important;
+}
