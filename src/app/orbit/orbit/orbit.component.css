@@ -1,0 +1,11 @@
+mat-sidenav {
+    max-width: 250px;
+}
+
+mat-sidenav-content {
+    min-height: calc(100vh - 56px);
+}
+
+::ng-deep .mat-drawer-backdrop.mat-drawer-shown {
+    visibility: hidden !important;
+}

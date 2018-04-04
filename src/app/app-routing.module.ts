@@ -16,8 +16,8 @@ const routes: Routes = [
         loadChildren: 'app/orbit/orbit.module#OrbitModule'
     },
     {
-        path: 'deltav',
-        loadChildren: 'app/deltav/deltav.module#DeltavModule'
+        path: 'rocket',
+        loadChildren: 'app/rocket/rocket.module#RocketModule'
     },
 ];
 
